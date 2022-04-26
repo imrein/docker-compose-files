@@ -1,0 +1,21 @@
+---
+version: "2.1"
+
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    container_name: adguardhome
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/pi/docker/adguard/config:/config
+      - /home/pi/docker/adguard/work:/work
+    ports:
+      - 53:53
+      - 53:53/udp
+      - 67-68:67-68
+      - 68:68/udp
+      - 9080:80
+      - 3000:3000
+    restart: unless-stopped
