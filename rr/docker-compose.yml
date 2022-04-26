@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/sonarr:/config
+      - /home/pi/docker/config/sonarr:/config
       - /home/pi/downloads/tvshows:/tv
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -25,7 +25,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/radarr:/config
+      - /home/pi/docker/config/radarr:/config
       - /home/pi/downloads/movies:/movies
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -41,7 +41,7 @@ services:
       - TZ=Europe/Brussels
       - AUTO_UPDATE=true
     volumes:
-      - /home/pi/docker/jackett:/config
+      - /home/pi/docker/config/jackett:/config
       - /home/pi/downloads/Torrents:/downloads
     ports:
       - 9117:9117
