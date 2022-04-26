@@ -1,3 +1,3 @@
-# docker-compose-files
+# Compose files
 
-test
+Inventory of my docker-compose-files. (WIP)
