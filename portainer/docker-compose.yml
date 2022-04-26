@@ -1,16 +1,14 @@
----
-version: "2.1"
+version: '3.3'
 
 services:
-  guacamole:
-    image: oznu/guacamole:armhf
-    container_name: guacamole
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels
-    volumes:
-      - /home/pi/docker/config/guacamole:/config
-    ports:
-      - 50545:8080
-    restart: unless-stopped
+    portainer-ce:
+        image: portainer/portainer-ce:latest
+        container_name: portainer
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - portainer_data:/data:rw
+        ports:
+            - 8000:8000
+            - 9000:9000
+            - 9443:9443
+        restart: unless-stopped
