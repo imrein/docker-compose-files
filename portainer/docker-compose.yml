@@ -1,0 +1,16 @@
+---
+version: "2.1"
+
+services:
+  guacamole:
+    image: oznu/guacamole:armhf
+    container_name: guacamole
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/pi/docker/config/guacamole:/config
+    ports:
+      - 50545:8080
+    restart: unless-stopped
