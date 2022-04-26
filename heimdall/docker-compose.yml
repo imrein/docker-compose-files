@@ -12,6 +12,6 @@ services:
     volumes:
       - /home/pi/docker/config/heimdall:/config
     ports:
-      - 8080:80
+      - 8008:80
       - 44344:443
     restart: unless-stopped
