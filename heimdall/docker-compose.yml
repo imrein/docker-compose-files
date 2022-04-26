@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/heimdall:/config
+      - /home/pi/docker/config/heimdall:/config
     ports:
       - 8080:80
       - 44344:443
