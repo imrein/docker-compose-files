@@ -11,7 +11,7 @@ services:
       - MEM_LIMIT=1024
       - MEM_STARTUP=1024
     volumes:
-      - /home/pi/docker/unifiController:/config
+      - /home/pi/docker/config/unifiController:/config
     ports:
       - 8443:8443
       - 3478:3478/udp
