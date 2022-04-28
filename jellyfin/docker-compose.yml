@@ -1,6 +1,9 @@
 ---
 version: "2.1"
 
+volumes:
+  jellyfin_data:
+
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin
@@ -10,7 +13,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/config/jellyfin:/config
+      - jellyfin_data:/config:ro
       - /home/pi/downloads/tvshows:/data/tvshows
       - /home/pi/downloads/movies:/data/movies
     ports:
