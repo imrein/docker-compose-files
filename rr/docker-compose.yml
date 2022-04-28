@@ -1,6 +1,13 @@
 ---
 version: "2.1"
 
+volumes:
+  sonarr_data:
+
+  radarr_data:
+
+  jackett_data:
+
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr
@@ -10,7 +17,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/config/sonarr:/config
+      - sonarr_data:/config:ro
       - /home/pi/downloads/tvshows:/tv
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -25,7 +32,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - /home/pi/docker/config/radarr:/config
+      - radarr_data:/config:ro
       - /home/pi/downloads/movies:/movies
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -41,7 +48,7 @@ services:
       - TZ=Europe/Brussels
       - AUTO_UPDATE=true
     volumes:
-      - /home/pi/docker/config/jackett:/config
+      - jackett_data:/config:ro
       - /home/pi/downloads/Torrents:/downloads
     ports:
       - 9117:9117
