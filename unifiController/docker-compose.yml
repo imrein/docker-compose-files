@@ -1,6 +1,9 @@
 ---
 version: "2.1"
 
+volumes:
+  unifi_data:
+
 services:
   unifi-controller:
     image: lscr.io/linuxserver/unifi-controller
@@ -11,7 +14,7 @@ services:
       - MEM_LIMIT=1024
       - MEM_STARTUP=1024
     volumes:
-      - /home/pi/docker/config/unifiController:/config
+      - unifi_data:/config:ro
     ports:
       - 8443:8443
       - 3478:3478/udp
