@@ -6,12 +6,20 @@ The data for every container is stored in a volume which will be created when th
 ## Quick start example
 
 1. Move inside desired directory:
-`cd heimdall`
+```
+cd heimdall
+```
 
 2. Setup container with docker-compose:
-`docker-compose up -d`
+```
+docker-compose up -d
+```
 
 3. Check if docker container is running & volumes are created:
-`docker ps`
+```
+docker ps
+```
 
-`docker volume ls`
+```
+docker volume ls
+```
