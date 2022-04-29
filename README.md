@@ -10,7 +10,7 @@ The data for every container is stored in a volume which will be created when th
 cd heimdall
 ```
 
-2. Setup container with docker-compose:
+2. Setup container using docker-compose:
 ```
 docker-compose up -d
 ```
