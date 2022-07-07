@@ -1,6 +1,9 @@
 ---
 version: "3.8"
 
+volumes:
+  dashy_conf:
+
 services:
   dashy:
     image: lissy93/dashy
