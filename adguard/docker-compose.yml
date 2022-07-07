@@ -1,6 +1,10 @@
 ---
 version: "2"
 
+volumes:
+  adguard_data:
+  adguard_config:
+
 services:
   adguardhome:
     image: adguard/adguardhome
