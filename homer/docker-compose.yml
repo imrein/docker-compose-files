@@ -1,0 +1,18 @@
+---
+version: "3"
+
+volumes:
+  homer_assets:
+
+services:
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    volumes:
+      - homer_assets:/www/assets
+    ports:
+      - 8095:8080
+    environment:
+      - UID=1000
+      - GID=1000
+    restart: unless-stopped
