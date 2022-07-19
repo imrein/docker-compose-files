@@ -17,7 +17,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - sonarr_data:/config:ro
+      - sonarr_data:/config
       - /home/pi/downloads/tvshows:/tv
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -32,7 +32,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - radarr_data:/config:ro
+      - radarr_data:/config
       - /home/pi/downloads/movies:/movies
       - /home/pi/downloads/Torrents:/downloads
     ports:
@@ -47,7 +47,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - prowlarr_data:/config:ro
+      - prowlarr_data:/config
     ports:
       - 9117:9117
     restart: unless-stopped
