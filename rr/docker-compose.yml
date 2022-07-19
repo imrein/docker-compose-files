@@ -18,7 +18,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - sonarr_data:/config
-      - /home/pi/downloads/tvshows:/tv
+      - /home/pi/downloads/Torrents/TVshows:/tv
       - /home/pi/downloads/Torrents:/downloads
     ports:
       - 8989:8989
@@ -33,7 +33,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - radarr_data:/config
-      - /home/pi/downloads/movies:/movies
+      - /home/pi/downloads/Torrents/Movies:/movies
       - /home/pi/downloads/Torrents:/downloads
     ports:
       - 7878:7878
