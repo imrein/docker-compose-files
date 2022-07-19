@@ -49,5 +49,5 @@ services:
     volumes:
       - prowlarr_data:/config
     ports:
-      - 9117:9117
+      - 9696:9696
     restart: unless-stopped
