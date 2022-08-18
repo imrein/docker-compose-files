@@ -18,8 +18,8 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - sonarr_data:/config
-      - /home/pi/downloads/Torrents/tvshows:/tv
-      - /home/pi/downloads/Torrents:/downloads
+      - /home/pi/downloads/tvshows:/tv
+      - /home/pi/downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -33,8 +33,8 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - radarr_data:/config
-      - /home/pi/downloads/Torrents/movies:/movies
-      - /home/pi/downloads/Torrents:/downloads
+      - /home/pi/downloads/movies:/movies
+      - /home/pi/downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
