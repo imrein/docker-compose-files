@@ -13,7 +13,7 @@ services:
       - PGID=1000
       - TZ=Europe/Brussels
     volumes:
-      - jellyfin_data:/config:ro
+      - jellyfin_data:/config
       - /home/pi/downloads/Torrents/tvshows:/data/tvshows
       - /home/pi/downloads/Torrents/movies:/data/movies
     ports:
