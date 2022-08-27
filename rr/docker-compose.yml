@@ -19,7 +19,7 @@ services:
     volumes:
       - sonarr_data:/config
       - /home/pi/downloads/tvshows:/tv
-      - /home/pi/downloads:/downloads
+      - /home/pi/downloads/Torrents:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -34,7 +34,7 @@ services:
     volumes:
       - radarr_data:/config
       - /home/pi/downloads/movies:/movies
-      - /home/pi/downloads:/downloads
+      - /home/pi/downloads/Torrents:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
