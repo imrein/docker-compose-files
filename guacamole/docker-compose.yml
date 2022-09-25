@@ -6,7 +6,7 @@ volumes:
 
 services:
   guacamole:
-    image: jwetzell/guacamole:1.4.0-arm64
+    image: jwetzell/guacamole:arm32v7
     container_name: guacamole
     environment:
       - PUID=1000
