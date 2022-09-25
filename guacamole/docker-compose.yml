@@ -6,7 +6,7 @@ volumes:
 
 services:
   guacamole:
-    image: oznu/guacamole:armhf
+    image: jwetzell/guacamole:1.4.0-arm64
     container_name: guacamole
     environment:
       - PUID=1000
