@@ -7,7 +7,7 @@ The data for every container is stored in a volume which will be created when th
 
 1. Move inside desired directory:
 ```
-cd heimdall
+cd adguard
 ```
 
 2. Setup container using docker-compose:
@@ -15,7 +15,7 @@ cd heimdall
 docker-compose up -d
 ```
 
-3. Check if docker container is running & volumes are created:
+3. Check if docker container is running & if volumes are created:
 ```
 docker ps
 ```
