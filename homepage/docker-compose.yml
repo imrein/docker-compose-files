@@ -1,9 +1,6 @@
 ---
 version: "3.3"
 
-volumes:
-  homepage_config:
-
 services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
@@ -11,4 +8,4 @@ services:
     ports:
       - 8095:3000
     volumes:
-      - homepage_config:/app/config
+      - ~/.docker/homepage:/app/config
