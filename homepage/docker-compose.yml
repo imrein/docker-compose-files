@@ -15,5 +15,5 @@ services:
       - ~/.docker/homepage:/app/config
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`localhost`)"
+      - "traefik.http.routers.homepage.rule=Host(`home.local`)"
       - "traefik.docker.network=reverse-proxy"
