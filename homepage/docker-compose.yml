@@ -5,7 +5,9 @@ services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
-    ports:
-      - 8095:3000
     volumes:
       - ~/.docker/homepage:/app/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`home.local`)"
+      - "traefik.http.routers.whoami.entrypoints=http"
