@@ -9,5 +9,10 @@ services:
       - ~/.docker/homepage:/app/config
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`home.local`)"
+      - "traefik.http.routers.homepage.rule=Host(`home.local.test`)"
       - "traefik.http.routers.whoami.entrypoints=http"
+    networks:
+      - test
+networks:
+  test:
+    external: true
