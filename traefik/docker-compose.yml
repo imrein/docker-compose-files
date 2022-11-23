@@ -1,16 +1,16 @@
 version: '3'
 
+networks:
+  default:
+    internal: false
+    name: reverse-proxy
+
 services:
   reverse-proxy:
     image: traefik:v2.9
-    command: --api.insecure=true --providers.docker
+    command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false
     ports:
       - "80:80"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - test
-networks:
-  test:
-    external: true
