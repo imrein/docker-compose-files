@@ -1,18 +1,20 @@
 ---
 version: "3.3"
 
+networks:
+  reverse-proxy:
+    external: true
+
 services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
+    networks:
+      - reverse-proxy
     volumes:
       - ~/.docker/homepage:/app/config
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`home.local.test`)"
-      - "traefik.http.routers.whoami.entrypoints=http"
-    networks:
-      - test
-networks:
-  test:
-    external: true
+      - "traefik.http.routers.homepage.entrypoints=http"
+      - "traefik.docker.network=reverse-proxy"
