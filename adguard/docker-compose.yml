@@ -8,6 +8,7 @@ volumes:
 networks:
   traefik:
     driver: bridge
+    name: traefik
 
 services:
   adguardhome:

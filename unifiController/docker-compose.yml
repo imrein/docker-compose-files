@@ -4,6 +4,7 @@ version: "2.1"
 networks:
   traefik:
     driver: bridge
+    name: traefik
 
 volumes:
   unifi_data:
