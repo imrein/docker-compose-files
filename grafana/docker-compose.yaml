@@ -23,7 +23,7 @@ services:
       - monitoring
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`grafana.local`)"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.local`)"
       - "traefik.docker.network=monitoring"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
