@@ -2,18 +2,19 @@
 version: "3.3"
 
 networks:
-  reverse-proxy:
-    external: true
+  traefik:
+    driver: bridge
+    name: traefik
 
 services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
     networks:
-      - reverse-proxy
+      - traefik
     volumes:
       - ~/.docker/homepage:/app/config
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`home.local`)"
-      - "traefik.docker.network=reverse-proxy"
+      - "traefik.docker.network=traefik"
