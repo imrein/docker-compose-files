@@ -20,6 +20,11 @@ services:
       - grafana_data:/var/lib/grafana
     networks:
       - monitoring
+      - reverse-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`grafana.local`)"
+      - "traefik.docker.network=reverse-proxy"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -54,9 +59,5 @@ services:
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
-      # - '--storage.tsdb.path=/prometheus'
-      # - '--web.console.libraries=/etc/prometheus/console_libraries'
-      # - '--web.console.templates=/etc/prometheus/consoles'
-      # - '--web.enable-lifecycle'
     networks:
       - monitoring
