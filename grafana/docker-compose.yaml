@@ -7,6 +7,8 @@ volumes:
 networks:
   monitoring:
     driver: bridge
+  reverse-proxy:
+    external: true
 
 services:
   grafana:
