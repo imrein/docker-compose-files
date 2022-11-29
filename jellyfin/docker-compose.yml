@@ -2,8 +2,8 @@
 version: "2.1"
 
 networks:
-  reverse-proxy:
-    external: true
+  traefik:
+    driver: bridge
 
 volumes:
   jellyfin_data:
@@ -27,5 +27,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jellyfin.rule=Host(`jelly.local`)"
-      - "traefik.docker.network=reverse-proxy"
+      - "traefik.docker.network=traefik"
     restart: unless-stopped

@@ -2,8 +2,8 @@
 version: "2.1"
 
 networks:
-  reverse-proxy:
-    external: true
+  traefik:
+    driver: bridge
 
 volumes:
   unifi_data:
@@ -27,5 +27,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.unifi.rule=Host(`unifi.local`)"
-      - "traefik.docker.network=reverse-proxy"
+      - "traefik.docker.network=traefik"
     restart: unless-stopped

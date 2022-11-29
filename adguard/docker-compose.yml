@@ -6,8 +6,8 @@ volumes:
   adguard_config:
 
 networks:
-  reverse-proxy:
-    external: true
+  traefik:
+    driver: bridge
 
 services:
   adguardhome:
@@ -25,5 +25,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.adguard.rule=Host(`adguard.local`)"
-      - "traefik.docker.network=reverse-proxy"
+      - "traefik.docker.network=traefik"
     restart: unless-stopped
