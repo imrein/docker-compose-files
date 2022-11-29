@@ -20,7 +20,6 @@ services:
       - grafana_data:/var/lib/grafana
     networks:
       - monitoring
-      - reverse-proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`grafana.local`)"
