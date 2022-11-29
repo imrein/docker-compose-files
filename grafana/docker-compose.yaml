@@ -65,3 +65,7 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     networks:
       - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.prometheus.rule=Host(`prometheus.local`)"
+      - "traefik.docker.network=monitoring"
