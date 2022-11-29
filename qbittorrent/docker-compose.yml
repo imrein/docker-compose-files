@@ -4,6 +4,11 @@ version: "2.1"
 volumes:
   qbittorrent_data:
 
+networks:
+  traefik:
+    driver: bridge
+    name: traefik
+
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
@@ -21,3 +26,7 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.qbittorrent.rule=Host(`qbittorrent.local`)"
+      - "traefik.docker.network=traefik"
