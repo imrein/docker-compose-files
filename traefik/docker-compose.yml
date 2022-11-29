@@ -3,8 +3,10 @@ version: '3'
 networks:
   traefik:
     driver: bridge
+    name: traefik
   monitoring:
     driver: bridge
+    name: monitoring
  
 services:
   reverse-proxy:
