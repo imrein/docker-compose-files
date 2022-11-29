@@ -11,6 +11,7 @@ networks:
 services:
   reverse-proxy:
     image: traefik:v2.9
+    container_name: traefik
     command: --api.insecure=true --providers.docker --providers.docker.exposedByDefault=false
     ports:
       - "80:80"
