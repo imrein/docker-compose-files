@@ -1,7 +1,6 @@
 # Compose files
 
-A collection of my compose files that I use. The bind mounts need to be adjusted to custom locations.
-The data for every container is stored in a volume which will be created when the docker-compose file is used.
+A collection of some docker-compose files for local testing and learning purposes.
 
 ## Quick start example
 
