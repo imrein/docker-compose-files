@@ -1,0 +1,20 @@
+---
+version: '3.3'
+
+networks:
+  traefik:
+    driver: bridge
+    name: traefik
+
+services:
+  speedtest:
+    image: openspeedtest/latest
+    container_name: openspeedtest
+    ports:
+      - '3055:3000'
+      - '3056:3001'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`openspeedtest.local`)"
+      - "traefik.docker.network=traefik"
+    restart: unless-stopped
