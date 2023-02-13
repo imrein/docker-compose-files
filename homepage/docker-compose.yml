@@ -14,6 +14,8 @@ services:
       - traefik
     volumes:
       - ~/.docker/homepage:/app/config
+    ports:
+      - 3000:3000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`home.local`)"
