@@ -19,8 +19,8 @@ services:
       - TZ=Europe/Brussels
       - WEBUI_PORT=8080
     volumes:
-      - qbittorrent_data:/config:ro
-      - /home/pi/downloads/Torrents:/downloads
+      - qbittorrent_data:/config
+      - /home/rein/Downloads/:/downloads
     ports:
       - 8080:8080
       - 6881:6881
