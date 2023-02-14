@@ -8,7 +8,7 @@ networks:
 volumes:
   gitlab_config:
 
-  gtlab_logs:
+  gitlab_logs:
 
   gitlab_data:
 
