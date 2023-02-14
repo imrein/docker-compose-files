@@ -8,6 +8,8 @@ networks:
 volumes:
   jellyfin_data:
 
+  jellyseer_data:
+
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin
@@ -27,5 +29,20 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jellyfin.rule=Host(`jelly.local`)"
+      - "traefik.docker.network=traefik"
+    restart: unless-stopped
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr
+    container_name: jellyseerr
+    environment:
+      - TZ=Europe/Brussels
+    ports:
+      - 5055:5055
+    volumes:
+      - jellyseer_data:/app/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jellyseerr.rule=Host(`jellyseerr.local`)"
       - "traefik.docker.network=traefik"
     restart: unless-stopped
