@@ -18,8 +18,8 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - sonarr_data:/config
-      - /home/pi/downloads/tvshows:/tv
-      - /home/pi/downloads/Torrents:/downloads
+      - /home/rein/Downloads/tv:/tv
+      - /home/rein/Downloads/:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -33,14 +33,14 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - radarr_data:/config
-      - /home/pi/downloads/movies:/movies
-      - /home/pi/downloads/Torrents:/downloads
+      - /home/rein/Downloads/movies:/movies
+      - /home/rein/Downloads/:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:develop
+    image: lscr.io/linuxserver/prowlarr
     container_name: prowlarr
     environment:
       - PUID=1000
