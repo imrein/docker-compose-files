@@ -18,7 +18,7 @@ services:
       - PUID=1000
       - OOKLA_EULA_GDPR=true
     ports:
-      - '3055:80'
+      - 3055:80
     volumes:
       - speedtest_data:/config
     labels:
