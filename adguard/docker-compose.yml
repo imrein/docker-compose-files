@@ -19,7 +19,7 @@ services:
       - 53:53/udp
       - 3000:3000/tcp
       - 8081:80/tcp
-      - 8082:443/tcp
+      - 44301:443/tcp
     volumes:
       - adguard_data:/opt/adguardhome/work
       - adguard_config:/opt/adguardhome/conf

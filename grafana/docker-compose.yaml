@@ -15,7 +15,7 @@ services:
     container_name: grafana
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 3030:3000
     volumes:
       - ~/.docker/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - grafana_data:/var/lib/grafana
