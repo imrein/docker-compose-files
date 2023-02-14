@@ -9,6 +9,8 @@ A collection of some docker-compose files for local testing and learning purpose
 cd adguard
 ```
 
+**Make sure to edit port mappings to your own needs.**
+
 2. Setup container using docker-compose:
 ```
 docker-compose up -d
