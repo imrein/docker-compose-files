@@ -20,3 +20,4 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.rule=Host(`home.local`)"
       - "traefik.docker.network=traefik"
+    restart: unless-stopped
