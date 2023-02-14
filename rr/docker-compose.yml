@@ -8,6 +8,8 @@ volumes:
 
   prowlarr_data:
 
+  bazarr_data:
+
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr
@@ -18,7 +20,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - sonarr_data:/config
-      - /home/rein/Downloads/tv:/tv
+      - /home/rein/Downloads/tv/:/tv
       - /home/rein/Downloads/:/downloads
     ports:
       - 8989:8989
@@ -33,7 +35,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - radarr_data:/config
-      - /home/rein/Downloads/movies:/movies
+      - /home/rein/Downloads/movies/:/movies
       - /home/rein/Downloads/:/downloads
     ports:
       - 7878:7878
@@ -50,4 +52,19 @@ services:
       - prowlarr_data:/config
     ports:
       - 9696:9696
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - bazarr_data:/config
+      - /home/rein/Downloads/movies/:/movies
+      - /home/rein/Downloads/tv/:/tv
+    ports:
+      - 6767:6767
     restart: unless-stopped
