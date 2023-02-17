@@ -3,11 +3,6 @@ version: '3.3'
 volumes:
   speedtest_data:
 
-networks:
-  traefik:
-    driver: bridge
-    name: traefik
-
 services:
   speedtest:
     image: henrywhitaker3/speedtest-tracker:latest-arm
@@ -21,9 +16,5 @@ services:
       - 8090:80
     volumes:
       - speedtest_data:/config
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`speedtest.local`)"
-      - "traefik.docker.network=traefik"
     restart: unless-stopped
 

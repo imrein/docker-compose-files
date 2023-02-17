@@ -1,14 +1,13 @@
 ---
-version: "2.1"
+version: "3"
 
 networks:
-  traefik:
-    driver: bridge
+  caddy:
 
 volumes:
   jellyfin_data:
 
-  jellyseer_data:
+  jellyseerr_data:
 
 services:
   jellyfin:
@@ -26,23 +25,17 @@ services:
       - 1900:1900/udp
       - 7359:7359/udp
       - 8096:8096
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.jellyfin.rule=Host(`jelly.local`)"
-      - "traefik.docker.network=traefik"
     restart: unless-stopped
 
   jellyseerr:
-    image: fallenbagel/jellyseerr
+    image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Brussels
     ports:
       - 5055:5055
     volumes:
-      - jellyseer_data:/app/config
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.jellyseerr.rule=Host(`jellyseerr.local`)"
-      - "traefik.docker.network=traefik"
+      - jellyseerr_data:/app/config
     restart: unless-stopped

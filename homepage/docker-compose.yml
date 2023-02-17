@@ -2,22 +2,16 @@
 version: "3.3"
 
 networks:
-  traefik:
-    driver: bridge
-    name: traefik
+  caddy:
 
 services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
     networks:
-      - traefik
+      - caddy
     volumes:
       - ~/.docker/homepage:/app/config
     ports:
       - 3000:3000
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.homepage.rule=Host(`home.local`)"
-      - "traefik.docker.network=traefik"
     restart: unless-stopped

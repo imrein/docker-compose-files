@@ -1,14 +1,10 @@
 ---
-version: "2"
+version: "3"
 
 volumes:
   adguard_data:
-  adguard_config:
 
-networks:
-  traefik:
-    driver: bridge
-    name: traefik
+  adguard_config:
 
 services:
   adguardhome:
@@ -17,14 +13,10 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
-      - 3000:3000/tcp
+      - 3050:3000/tcp
       - 8081:80/tcp
       - 44301:443/tcp
     volumes:
       - adguard_data:/opt/adguardhome/work
       - adguard_config:/opt/adguardhome/conf
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.adguard.rule=Host(`adguard.local`)"
-      - "traefik.docker.network=traefik"
     restart: unless-stopped
