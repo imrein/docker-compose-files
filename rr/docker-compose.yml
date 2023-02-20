@@ -10,6 +10,8 @@ volumes:
 
   bazarr_data:
 
+  qbittorrent_data:
+
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr
@@ -20,8 +22,8 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - sonarr_data:/config
-      - /home/rein/Downloads/tv/:/tv
-      - /home/rein/Downloads/:/downloads
+      - ~/Downloads/tv/:/tv
+      - ~/Downloads/:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -35,8 +37,8 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - radarr_data:/config
-      - /home/rein/Downloads/movies/:/movies
-      - /home/rein/Downloads/:/downloads
+      - ~/Downloads/movies/:/movies
+      - ~/Downloads/:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -63,8 +65,25 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - bazarr_data:/config
-      - /home/rein/Downloads/movies/:/movies
-      - /home/rein/Downloads/tv/:/tv
+      - ~/Downloads/movies/:/movies
+      - ~/Downloads/tv/:/tv
     ports:
       - 6767:6767
+    restart: unless-stopped
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+      - WEBUI_PORT=8080
+    volumes:
+      - qbittorrent_data:/config
+      - ~/Downloads/:/downloads
+    ports:
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
     restart: unless-stopped
