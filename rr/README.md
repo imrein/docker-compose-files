@@ -1,3 +1,3 @@
-# Sonarr, Radarr & Prowlarr
+# Sonarr, Radarr, Prowlarr, bazarr & qbittorrent
 
-Single compose file to setup these three containers.
+Single compose file to setup the container stack containers.
