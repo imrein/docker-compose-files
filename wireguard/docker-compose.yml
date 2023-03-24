@@ -1,9 +1,6 @@
 ---
 version: "3"
 
-volumes:
-  wireguard_config:
-
 services:
   wireguard:
     image: lscr.io/linuxserver/wireguard:latest
@@ -17,12 +14,12 @@ services:
       - TZ=Europe/Brussels
       - SERVERURL=auto
       - SERVERPORT=51820
-      - PEERS=1
+      - PEERS=3
       - PEERDNS=auto
       - INTERNAL_SUBNET=10.10.10.0
       - LOG_CONFS=true
     volumes:
-      - wireguard_config:/config
+      - ~/.docker/wireguard/config:/config
     ports:
       - 51820:51820/udp
     sysctls:
