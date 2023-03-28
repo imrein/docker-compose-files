@@ -11,7 +11,7 @@ volumes:
 
 services:
   server:
-    image: gitea/gitea:1.18.5
+    image: gitea/gitea:latest
     container_name: gitea
     environment:
       - USER_UID=1000
