@@ -16,7 +16,7 @@ services:
       - SERVERPORT=51820
       - PEERS=3
       - PEERDNS=auto
-      - INTERNAL_SUBNET=10.10.10.0
+      - ALLOWEDIPS=10.13.13.0/24,192.168.0.0/24
       - LOG_CONFS=true
     volumes:
       - ~/.docker/wireguard/config:/config
