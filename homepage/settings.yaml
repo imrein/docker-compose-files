@@ -1,0 +1,24 @@
+---
+#providers:
+#  openweathermap: openweathermapapikey
+#  weatherapi: weatherapiapikey
+
+layout:
+  Management:
+    icon: mdi-cog
+    style: row
+    columns: 3
+
+  Media:
+    icon: mdi-filmstrip
+    style: row
+    columns: 3
+
+  Network:
+    icon: mdi-wan
+
+  Monitoring:
+    icon: mdi-eye
+
+  Extra:
+    icon: mdi-hammer-screwdriver
