@@ -3,7 +3,7 @@
 # https://gethomepage.dev/en/configs/widgets
 
 - logo:
-    icon: netcam-studio.png
+    icon: selfhosted.png
 
 - resources:
     cpu: true
