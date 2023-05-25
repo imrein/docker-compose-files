@@ -17,13 +17,13 @@ services:
     container_name: caddy
     networks:
       - caddy
-    ports:
-      - 80:80
-      - 443:443
     volumes:
       - ~/.docker/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    ports:
+      - 80:80
+      - 443:443
     restart: unless-stopped
 
 

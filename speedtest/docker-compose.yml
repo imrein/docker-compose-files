@@ -12,9 +12,9 @@ services:
       - PGID=1000
       - PUID=1000
       - OOKLA_EULA_GDPR=true
-    ports:
-      - 8090:80
     volumes:
       - speedtest_data:/config
+    ports:
+      - 8090:80
     restart: unless-stopped
 
