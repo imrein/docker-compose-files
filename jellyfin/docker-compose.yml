@@ -1,9 +1,6 @@
 ---
 version: "3"
 
-networks:
-  caddy:
-
 volumes:
   jellyfin_data:
 
@@ -34,8 +31,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Brussels
-    ports:
-      - 5055:5055
     volumes:
       - jellyseerr_data:/app/config
+    ports:
+      - 5055:5055
     restart: unless-stopped
