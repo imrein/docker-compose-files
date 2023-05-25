@@ -25,7 +25,7 @@ services:
       - ~/Downloads/tv/:/tv
       - ~/Downloads/:/downloads
     ports:
-      - 8989:8989
+      - "8989:8989"
     restart: unless-stopped
 
   radarr:
@@ -40,7 +40,7 @@ services:
       - ~/Downloads/movies/:/movies
       - ~/Downloads/:/downloads
     ports:
-      - 7878:7878
+      - "7878:7878"
     restart: unless-stopped
 
   prowlarr:
@@ -53,7 +53,7 @@ services:
     volumes:
       - prowlarr_data:/config
     ports:
-      - 9696:9696
+      - "9696:9696"
     restart: unless-stopped
 
   bazarr:
@@ -68,7 +68,7 @@ services:
       - ~/Downloads/movies/:/movies
       - ~/Downloads/tv/:/tv
     ports:
-      - 6767:6767
+      - "6767:6767"
     restart: unless-stopped
 
   qbittorrent:
@@ -83,7 +83,7 @@ services:
       - qbittorrent_data:/config
       - ~/Downloads/:/downloads
     ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
     restart: unless-stopped

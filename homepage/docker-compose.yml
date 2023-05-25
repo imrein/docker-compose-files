@@ -13,5 +13,5 @@ services:
     volumes:
       - ~/.docker/homepage:/app/config
     ports:
-      - 3000:3000
+      - "3000:3000"
     restart: unless-stopped

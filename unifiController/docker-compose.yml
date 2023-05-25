@@ -21,10 +21,10 @@ services:
     volumes:
       - unifi_data:/config:ro
     ports:
-      - 8443:8443
-      - 3478:3478/udp
-      - 10001:10001/udp
-      - 8010:8080
+      - "8443:8443"
+      - "3478:3478/udp"
+      - "10001:10001/udp"
+      - "8010:8080"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.unifi.rule=Host(`unifi.local`)"

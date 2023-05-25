@@ -15,6 +15,6 @@ services:
     volumes:
       - speedtest_data:/config
     ports:
-      - 8090:80
+      - "8090:80"
     restart: unless-stopped
 

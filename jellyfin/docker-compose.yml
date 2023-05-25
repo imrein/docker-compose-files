@@ -19,9 +19,9 @@ services:
       - ~/Downloads/tv/:/data/tvshows
       - ~/Downloads/movies/:/data/movies
     ports:
-      - 1900:1900/udp
-      - 7359:7359/udp
-      - 8096:8096
+      - "1900:1900/udp"
+      - "7359:7359/udp"
+      - "8096:8096"
     restart: unless-stopped
 
   jellyseerr:
@@ -34,5 +34,5 @@ services:
     volumes:
       - jellyseerr_data:/app/config
     ports:
-      - 5055:5055
+      - "5055:5055"
     restart: unless-stopped

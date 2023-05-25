@@ -14,5 +14,5 @@ services:
       - ./logs:/usr/src/app/logs
       - ./run.py:/usr/src/app/run.py
     ports:
-      - 5000:5000
+      - "5000:5000"
     restart: unless-stopped

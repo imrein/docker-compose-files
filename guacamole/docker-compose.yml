@@ -17,5 +17,5 @@ services:
     volumes:
       - postgres:/config
     ports:
-      - 50545:8080
+      - "50545:8080"
     restart: unless-stopped
