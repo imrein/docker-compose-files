@@ -1,14 +1,13 @@
 ---
-version: "3.8"
-
+version: "3"
 services:
   snmp-exporter:
     image: prom/snmp-exporter
     container_name: snmp_exporter
     volumes:
-      - ./snmp-synology/snmp.yml:/etc/snmp_exporter/snmp.yml
+      - ./snmp-synology/snmp-0.24.x.yml:/etc/snmp_exporter/snmp.yml
     ports:
-      - "9116:9116"
+      - 9116:9116
     command:
       - "--config.file=/etc/snmp_exporter/snmp.yml"
     restart: unless-stopped

@@ -1,17 +1,11 @@
 ---
-version: "3.3"
-
-networks:
-  caddy:
-
+version: "3"
 services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
-    networks:
-      - caddy
     volumes:
-      - ~/.docker/homepage:/app/config
+      - ${homepage_config_dir}:/app/config
     ports:
-      - "3000:3000"
+      - 3000:3000
     restart: unless-stopped

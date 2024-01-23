@@ -1,0 +1,25 @@
+---
+version: "3"
+volumes:
+  adguardhome_data:
+  adguardhome_config:
+
+services:
+  adguardhome-sync:
+    image: ghcr.io/bakito/adguardhome-sync
+    container_name: adguardhome-sync
+    environment:
+      - LOG_LEVEL=info
+      - ORIGIN_URL=http://${adguard_url}:${adguard_web_port}
+      - ORIGIN_USERNAME=${adguard_user}
+      - ORIGIN_PASSWORD=${adguard_pass}
+      - REPLICA_URL=http://${adguard_url}:${adguard_web_port}
+      - REPLICA_USERNAME=${adguard_sync_user}
+      - REPLICA_PASSWORD=${adguard_sync_pass}
+      - CRON=0 * * * *
+      - RUNONSTART=true
+      - API_PORT=${adguard_api_port}
+    ports:
+      - 8085:8080
+    command: run
+    restart: unless-stopped

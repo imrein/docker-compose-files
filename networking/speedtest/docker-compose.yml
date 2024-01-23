@@ -1,20 +1,19 @@
-version: '3.3'
-
+---
+version: "3"
 volumes:
   speedtest_data:
 
 services:
   speedtest:
-    image: henrywhitaker3/speedtest-tracker:latest-arm
+    image: henrywhitaker3/speedtest-tracker:latest
     container_name: speedtest
     environment:
       - TZ=Europe/Brussels
-      - PGID=1000
-      - PUID=1000
+      - PGID=${speedtest_PUID}
+      - PUID=${speedtest_PUID}
       - OOKLA_EULA_GDPR=true
+    ports:
+      - 8090:80
     volumes:
       - speedtest_data:/config
-    ports:
-      - "8090:80"
     restart: unless-stopped
-

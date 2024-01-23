@@ -1,0 +1,244 @@
+---
+- Management:
+    - Synology:
+        icon: synology.png
+        href: http://${nas_ip}:${nas_port}
+        widget:
+          type: diskstation
+          url: http://${nas_ip}:${nas_port}
+          username: ${nas_user}
+          password: ${nas_pass}
+          volume: ${nas_volume}
+    - Pve1:
+        icon: proxmox.png
+        href: https://${pve1_ip}:${pve1_port}
+        widget:
+          type: proxmox
+          url: https://${pve1_ip}:${pve1_port}
+          username: ${pve1_user}
+          password: ${pve1_pass}
+          node: pve1
+          fields: ["vms","resources.cpu","resources.mem"]
+    - Pve2:
+        icon: proxmox.png
+        href: https://${pve2_ip}:${pve2_port}
+        widget:
+          type: proxmox
+          url: https://${pve2_ip}:${pve2_port}
+          username: ${pve2_user}
+          password: ${pve2_pass}
+          node: pve2
+          fields: ["vms","resources.cpu","resources.mem"] 
+    - Pve3:
+        icon: proxmox.png
+        href: https://${pve3_ip}:${pve3_port}
+        widget:
+          type: proxmox
+          url: https://${pve3_ip}:${pve3_port}
+          username: ${pve3_user}
+          password: ${pve3_pass}
+          node: pve3
+          fields: ["vms","resources.cpu","resources.mem"] 
+
+- Network:
+    - Caddy:
+        icon: caddy.png
+        server: ${docker_server1}
+        container: caddy
+        widget:
+          type: caddy
+          url: http://${pi4_ip}:${caddy_port}
+    - AdGuard:
+        icon: adguard-home.png
+        href: http://${pi4_ip}:${adguard_port}
+        server: ${docker_server_pi4}
+        container: adguardhome
+        widget:
+          type: adguard
+          url: http://${pi4_ip}:${adguard_port}
+          username: ${adguard_user}
+          password: ${adguard_pass}
+    - AdGuard (backup):
+        icon: adguard-home.png
+        href: http://${pi3_ip}:${adguard_port}
+        server: ${docker_server_pi3}
+        container: adguardhome
+        widget:
+          type: adguard
+          url: http://${pi3_ip}:${adguard_port}
+          username: ${adguard2_user}
+          password: ${adguard2_pass}
+    - Wireguard:
+        icon: wireguard.png
+        href: http://${pi4_ip}:${wireguard_port}
+        server: ${docker_server_pi4}
+        container: wg-easy
+    - Porkbun-ddns:
+        icon: https://porkbun.com/partners/logos/porkbun.comphpPkl2eU.svg
+        server: ${docker_server_pi4}
+        container: porkbun-ddns
+
+- Monitoring:
+    - Uptime-kuma:
+        icon: uptime-kuma.png
+        href: http://${pi4_ip}:${kuma_port}
+        server: ${docker_server_pi4}
+        container: uptime-kuma
+        widget:
+          type: uptimekuma
+          url: http://${pi4_ip}:${kuma_port}
+          slug: home
+    - Speedtest (LAN):
+        icon: speedtest-tracker.png
+        href: http://${node1_ip}:${speedtest_port}
+        server: ${docker_server1}
+        container: speedtest
+        widget:
+          type: speedtest
+          url: http://${node1_ip}:${speedtest_port}
+    - Speedtest (WLAN):
+        icon: speedtest-tracker.png
+        href: http://${pi4_ip}:${speedtest_port}
+        server: ${docker_server_pi4}
+        container: speedtest
+        widget:
+          type: speedtest
+          url: http://${pi4_ip}:${speedtest_port}
+    - Prometheus:
+        icon: prometheus.png
+        href: http://${node2_ip}:${prometheus_port}
+    - Grafana:
+        icon: grafana.png
+        href: http://${node2_ip}:${grafana_port}
+    - Promtail:
+        icon: loki.png
+        href: http://${node2_ip}:${promtail_port}
+
+- Automation:
+    - Home Assistant:
+        icon: home-assistant.png
+        href: http://${node3_ip}:${ha_port}
+        widget:
+          type: homeassistant
+          url: http://${node3_ip}:${ha_port}
+          key: ${ha_key}
+          custom:
+            - state: sensor.audi_a3_sportback_tfsi_e_state_of_charge
+              label: Audi bat
+            - state: sensor.audi_a3_sportback_tfsi_e_tank_level
+              label: Audi tank
+    - Gitea:
+        icon: gitea.png
+        href: http://${node4_ip}:${gitea_port}
+    - Jenkins:
+        icon: jenkins.png
+        href: http://${node4_ip}:${jenkins_port}
+    - Ntfy:
+        icon: ntfy.png
+        href: http://${pi3_ip}:${ntfy_port}
+        server: ${docker_server_pi3}
+        container: ntfy
+    - TwitchPoints:
+        icon: twitch.png
+        server: ${docker_server_pi3}
+        container: twitchminer
+
+- Watchtowers:
+    - Watchtower:
+        description: pi4
+        icon: watchtower.png
+        href: http://${pi4_ip}:${watchtower_port}
+        server: ${docker_server_pi4}
+        container: watchtower
+    - Watchtower:
+        description: pi3
+        icon: watchtower.png
+        href: http://${pi3_ip}:${watchtower_port}
+        server: ${docker_server_pi3}
+        container: watchtower
+    - Watchtower:
+        description: nas
+        icon: watchtower.png
+        href: http://${nas_ip}:${watchtower_port}
+        server: ${docker_server_nas}
+        container: watchtower_nas
+    - Watchtower:
+        description: node1
+        icon: watchtower.png
+        href: http://${node1_ip}:${watchtower_port}
+        server: ${docker_server1}
+        container: watchtower
+    - Watchtower:
+        description: node2
+        icon: watchtower.png
+        href: http://${node2_ip}:${watchtower_port}
+        server: ${docker_server2}
+        container: watchtower
+
+- Media:
+    - Jellyfin:
+        icon: jellyfin.png
+        href: http://${node1_ip}:${jellyin_port}
+        server: ${docker_server1}
+        container: jellyfin
+        widget:
+          type: jellyfin
+          url: http://${node1_ip}:${jellyin_port}/jellyfin
+          key: ${jellyfin_key}
+    - Jellyseerr:
+        icon: jellyseerr.png
+        href: http://${node1_ip}:${jellyseerr_port}
+        server: ${docker_server1}
+        container: jellyseerr
+    - Minecraft server:
+        icon: minecraft.png
+        href: http://${node5_ip}:${mc_port}
+
+- Media management:
+    - qBittorrent:
+        icon: qbittorrent.png
+        href: http://${nas_ip}:${qbittorrent_port}/
+        server: ${docker_server_nas}
+        container: qbittorrent
+        widget:
+          type: qbittorrent
+          url: http://${nas_ip}:${qbittorrent_port}
+          username: ${qbittorrent_user}
+          password: ${qbittorrent_pass}
+    - Sonarr:
+        icon: sonarr.png
+        href: http://${nas_ip}:${sonarr_port}
+        server: ${docker_server_nas}
+        container: sonarr
+        widget:
+          type: sonarr
+          url: http://${nas_ip}:${sonarr_port}
+          key: ${sonarr_key}
+    - Radarr:
+        icon: radarr.png
+        href: http://${nas_ip}:${radarr_port}
+        server: ${docker_server_nas}
+        container: radarr
+        widget:
+          type: radarr
+          url: http://${nas_ip}:${radarr_port}
+          key: ${radarr_key}
+    - Bazarr:
+        icon: bazarr.png
+        href: http://${nas_ip}:${bazarr_port}
+        server: ${docker_server_nas}
+        container: bazarr
+        widget:
+          type: bazarr
+          url: http://${nas_ip}:${bazarr_port}
+          key: ${bazarr_key}
+    - Prowlarr:
+        icon: prowlarr.png
+        href: http://${nas_ip}:${prowlarr_port}
+        server: ${docker_server_nas}
+        container: prowlarr
+        widget:
+          type: prowlarr
+          url: http://${nas_ip}:${prowlarr_port}
+          key: ${prowlarr_key}
+          fields: ["numberOfGrabs","numberOfQueries","numberOfFailGrabs"]

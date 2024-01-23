@@ -1,9 +1,8 @@
 ---
 version: "3"
-
 services:
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor-arm64:0.99-porterdavid
+    image: gcr.io/cadvisor/cadvisor-arm64:0.99-porterdavid    # cadvisor:0.99-porterdavid (for x86)
     container_name: cadvisor
     volumes:
       - /:/rootfs:ro
@@ -11,5 +10,5 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     ports:
-      - "8050:8080"
+      - 8050:8080
     restart: unless-stopped

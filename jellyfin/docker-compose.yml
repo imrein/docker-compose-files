@@ -1,9 +1,7 @@
 ---
 version: "3"
-
 volumes:
   jellyfin_data:
-
   jellyseerr_data:
 
 services:
@@ -11,28 +9,28 @@ services:
     image: lscr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels
+      - PUID=${jellyfin_PUID}
+      - PGID=${jellyfin_PGID}
+      - TZ=${timezone}
     volumes:
       - jellyfin_data:/config
-      - ~/Downloads/tv/:/data/tvshows
-      - ~/Downloads/movies/:/data/movies
+      - ${location_tvshows}:/data/tvshows
+      - ${location_downloads}:/data/movies
     ports:
-      - "1900:1900/udp"
-      - "7359:7359/udp"
-      - "8096:8096"
+      - 1900:1900/udp
+      - 7359:7359/udp
+      - 8096:8096
     restart: unless-stopped
 
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels
+      - PUID=${jellyfin_PUID}
+      - PGID=${jellyfin_PGID}
+      - TZ=${timezone}
     volumes:
       - jellyseerr_data:/app/config
     ports:
-      - "5055:5055"
+      - 5055:5055
     restart: unless-stopped

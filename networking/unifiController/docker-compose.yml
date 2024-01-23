@@ -1,0 +1,22 @@
+---
+version: "3"
+volumes:
+  unifi_data:
+
+services:
+  unifi-controller:
+    image: lscr.io/linuxserver/unifi-controller
+    container_name: unifi-controller
+    environment:
+      - PUID=${unifi_PUID}
+      - PGID=${unifi_PUID}
+      - MEM_LIMIT=${unifi_mem_limit}
+      - MEM_STARTUP=${unifi_mem_startup}
+    volumes:
+      - unifi_data:/config:ro
+    ports:
+      - 8095:8080
+      - 8443:8443
+      - 3478:3478/udp
+      - 10001:10001/udp
+    restart: unless-stopped

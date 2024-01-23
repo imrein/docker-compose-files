@@ -1,5 +1,5 @@
-version: "3.9"
-
+---
+version: "3"
 services:
   miner:
     image: rdavidoff/twitch-channel-points-miner-v2
@@ -14,5 +14,5 @@ services:
       - ./logs:/usr/src/app/logs
       - ./run.py:/usr/src/app/run.py
     ports:
-      - "5000:5000"
+      - 5000:5000
     restart: unless-stopped

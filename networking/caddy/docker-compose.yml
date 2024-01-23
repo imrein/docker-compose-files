@@ -1,29 +1,18 @@
 ---
 version: "3"
-
-networks:
-  caddy:
-    driver: bridge
-    name: caddy
-
 volumes:
   caddy_data:
-
   caddy_config:
 
 services:
   caddy:
     image: caddy
     container_name: caddy
-    networks:
-      - caddy
     volumes:
-      - ~/.docker/Caddyfile:/etc/caddy/Caddyfile
+      - ${location_caddyfile}:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     restart: unless-stopped
-
-
